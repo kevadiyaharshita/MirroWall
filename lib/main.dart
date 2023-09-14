@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirror_wall/controller/WebController.dart';
+import 'package:mirror_wall/controller/searchController.dart';
 import 'package:mirror_wall/utils/MyRoutes.dart';
 import 'package:mirror_wall/views/screens/HomePage.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,7 @@ void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => WebController()),
+      ChangeNotifierProvider(create: (context) => searchController()),
     ],
     child: MyApp(),
   ));
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: MyRoutes.home,
       theme: ThemeData(
         useMaterial3: true,
+        colorSchemeSeed: Color(0xff252B48),
       ),
       routes: {
         MyRoutes.home: (context) => HomePage(),
