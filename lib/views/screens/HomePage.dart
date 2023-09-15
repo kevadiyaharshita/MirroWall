@@ -163,26 +163,29 @@ class HomePage extends StatelessWidget {
                                   ),
                                   ...List.generate(
                                     pro.allBookMark.length,
-                                    (index) => ListTile(
-                                      title: Text(
-                                        '${pro.allSearchString[index]}',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      subtitle: Text(
-                                        '${pro.allBookMark[index]}',
-                                        maxLines: 1,
-                                      ),
-                                      leading: IconButton(
-                                        onPressed: () {
-                                          pro.removeBookMark(index: index);
-                                          pro.removeSearchString(index: index);
-                                          p.update();
-                                        },
-                                        icon: Icon(
-                                          Icons.highlight_remove_outlined,
-                                          color: Colors.red,
+                                    (index) => Card(
+                                      child: ListTile(
+                                        title: Text(
+                                          '${pro.allSearchString[index]}',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        subtitle: Text(
+                                          '${pro.allBookMark[index]}',
+                                          maxLines: 1,
+                                        ),
+                                        leading: IconButton(
+                                          onPressed: () {
+                                            pro.removeBookMark(index: index);
+                                            pro.removeSearchString(
+                                                index: index);
+                                            p.update();
+                                          },
+                                          icon: Icon(
+                                            Icons.highlight_remove_outlined,
+                                            color: Colors.red,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -211,19 +214,33 @@ class HomePage extends StatelessWidget {
                   onLoadStop: (controller, uri) {
                     pro.initController(controller: controller);
                     pro.setCurrenturl(uri.toString());
+                    pro.checkBookMarkIcon(url: uri.toString());
                   },
                 ),
                 Positioned(
-                  bottom: 50,
+                  bottom: 52,
+                  right: 2,
+                  left: 2,
                   child: Consumer<searchController>(
                     builder: (context, p, _) {
                       return Visibility(
                         visible: p.searchBarVisibility,
                         child: Container(
-                          height: 70,
+                          height: 60,
                           width: w,
-                          padding: EdgeInsets.all(10),
-                          color: Colors.white,
+                          margin: EdgeInsets.all(3),
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            // boxShadow: [
+                            //   BoxShadow(
+                            //     offset: Offset(2, 2),
+                            //     color: Colors.grey,
+                            //     blurRadius: 5,
+                            //   )
+                            // ],
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.white,
+                          ),
                           alignment: Alignment.center,
                           child: TextField(
                             onSubmitted: (val) {

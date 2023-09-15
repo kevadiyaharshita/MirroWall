@@ -6,6 +6,8 @@ class WebController extends ChangeNotifier {
   bool _canBack = false;
   bool _canForward = false;
 
+  bool _bookMarkIcon = false;
+
   List<String> _allBookMark = [];
   List<String> _allsearchString = [];
   String? _currentsearchString;
@@ -83,9 +85,11 @@ class WebController extends ChangeNotifier {
   }
 
   addBookMark() {
-    _allBookMark.add(_currentUrl);
-    _allsearchString.add(_currentsearchString ?? '');
-    notifyListeners();
+    if (!_allBookMark.contains(_currentUrl)) {
+      _allBookMark.add(_currentUrl);
+      _allsearchString.add(_currentsearchString ?? '');
+      notifyListeners();
+    }
   }
 
   get allBookMark {
@@ -140,5 +144,22 @@ class WebController extends ChangeNotifier {
   forward() {
     _controller!.goForward();
     notifyListeners();
+  }
+
+  setBookMarkIcon({required bool value}) {
+    _bookMarkIcon = value;
+    notifyListeners();
+  }
+
+  get getBookMarkIcons {
+    return _bookMarkIcon;
+  }
+
+  checkBookMarkIcon({required String url}) {
+    if (_allBookMark.contains(url)) {
+      setBookMarkIcon(value: true);
+    } else {
+      setBookMarkIcon(value: false);
+    }
   }
 }
