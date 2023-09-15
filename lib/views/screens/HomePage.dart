@@ -31,6 +31,7 @@ class HomePage extends StatelessWidget {
               centerTitle: true,
               actions: [
                 PopupMenuButton(
+                  offset: Offset(50, 50),
                   itemBuilder: (context) => [
                     PopupMenuItem(
                       child: Row(
@@ -74,64 +75,144 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           children: [
-                            TextButton(
-                              onPressed: () {
-                                pro.setBrowser('Google');
-                                pro.clearSearchData();
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                "Google",
-                                style: TextStyle(fontSize: 20),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 0, left: 5, bottom: 0, right: 5),
+                              child: Card(
+                                child: ListTile(
+                                  title: Text(
+                                    "Google",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  leading: CircleAvatar(
+                                    radius: 20,
+                                    foregroundImage: NetworkImage(
+                                      'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png',
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    pro.setBrowser('Google');
+                                    pro.clearSearchData();
+                                    Navigator.of(context).pop();
+                                  },
+                                  trailing: Icon(Icons.browser_updated_rounded),
+                                ),
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                pro.setBrowser('Yahoo');
-                                pro.clearSearchData();
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                "Yahoo",
-                                style: TextStyle(fontSize: 20),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 0, left: 5, bottom: 0, right: 5),
+                              child: Card(
+                                child: ListTile(
+                                  title: Text(
+                                    "Yahoo",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  leading: CircleAvatar(
+                                    radius: 20,
+                                    foregroundImage: NetworkImage(
+                                      'https://www.clipartmax.com/png/middle/285-2851323_other-yahoo-icon-png-images-yahoo-mail-icon-png.png',
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    pro.setBrowser('Yahoo');
+                                    pro.clearSearchData();
+                                    Navigator.of(context).pop();
+                                  },
+                                  trailing: Icon(Icons.browser_updated_rounded),
+                                ),
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                pro.setBrowser('DogPile');
-                                pro.clearSearchData();
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                "DogPile",
-                                style: TextStyle(fontSize: 20),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 0, left: 5, bottom: 0, right: 5),
+                              child: Card(
+                                child: ListTile(
+                                  title: Text(
+                                    "DogPile",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  leading: CircleAvatar(
+                                    radius: 20,
+                                    foregroundImage: NetworkImage(
+                                      'https://assets.stickpng.com/images/623af73227d4946aceae2f8a.png',
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    pro.setBrowser('DogPile');
+                                    pro.clearSearchData();
+                                    Navigator.of(context).pop();
+                                  },
+                                  trailing: Icon(Icons.browser_updated_rounded),
+                                ),
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                pro.setBrowser('Bing');
-                                pro.clearSearchData();
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                "Bing",
-                                style: TextStyle(fontSize: 20),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 0, left: 5, bottom: 0, right: 5),
+                              child: Card(
+                                child: ListTile(
+                                  title: Text(
+                                    "Bing",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  leading: CircleAvatar(
+                                    radius: 20,
+                                    foregroundImage: NetworkImage(
+                                      'https://cdn-icons-png.flaticon.com/512/356/356015.png',
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    pro.setBrowser('Bing');
+                                    pro.clearSearchData();
+                                    Navigator.of(context).pop();
+                                  },
+                                  trailing: Icon(Icons.browser_updated_rounded),
+                                ),
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                pro.setBrowser('DuckDuckGo');
-                                pro.clearSearchData();
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                "DuckDuckGo",
-                                style: TextStyle(fontSize: 20),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 0, left: 5, bottom: 0, right: 5),
+                              child: Card(
+                                child: ListTile(
+                                  title: Text(
+                                    "DuckDuckGo",
+                                    style: TextStyle(
+                                        fontSize: 20 - 2,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  leading: CircleAvatar(
+                                    radius: 20,
+                                    foregroundImage: NetworkImage(
+                                      'https://static-00.iconduck.com/assets.00/duckduckgo-icon-2048x2048-vgqwev0d.png',
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    pro.setBrowser('DuckDuckGo');
+                                    pro.clearSearchData();
+                                    Navigator.of(context).pop();
+                                  },
+                                  trailing: Icon(Icons.browser_updated_rounded),
+                                ),
                               ),
                             ),
+                            SizedBox(
+                              height: 10,
+                            )
                           ],
                         ),
-                      ).then((value) => pro.update());
+                      ).then(
+                        (value) => pro.update(),
+                      );
                     }
                     if (value == 'BK') {
                       showModalBottomSheet(
@@ -203,18 +284,33 @@ class HomePage extends StatelessWidget {
             ),
             body: Stack(
               children: [
-                InAppWebView(
-                  initialUrlRequest: URLRequest(
-                    url: Uri.parse(pro.getsearchUrlData ??
-                        pro.allSearchEngine[pro.getBeowser]),
-                  ),
-                  onLoadStart: (controller, uri) {
-                    pro.initController(controller: controller);
-                  },
-                  onLoadStop: (controller, uri) {
-                    pro.initController(controller: controller);
-                    pro.setCurrenturl(uri.toString());
-                  },
+                Column(
+                  children: [
+                    (pro.getProgress < 1)
+                        ? LinearProgressIndicator(
+                            value: pro.getProgress,
+                          )
+                        : SizedBox(),
+                    Expanded(
+                      child: InAppWebView(
+                        initialUrlRequest: URLRequest(
+                          url: Uri.parse(pro.getsearchUrlData ??
+                              pro.allSearchEngine[pro.getBeowser]),
+                        ),
+                        onLoadStart: (controller, uri) {
+                          pro.initController(controller: controller);
+                        },
+                        onLoadStop: (controller, uri) {
+                          pro.initController(controller: controller);
+                          pro.setCurrenturl(uri.toString());
+                        },
+                        onProgressChanged: (controller, progress) {
+                          pro.setProgress(progress: progress);
+                          print("Progress : ${progress}");
+                        },
+                      ),
+                    ),
+                  ],
                 ),
                 Positioned(
                   bottom: 52,
@@ -230,13 +326,6 @@ class HomePage extends StatelessWidget {
                           margin: EdgeInsets.all(3),
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            // boxShadow: [
-                            //   BoxShadow(
-                            //     offset: Offset(2, 2),
-                            //     color: Colors.grey,
-                            //     blurRadius: 5,
-                            //   )
-                            // ],
                             borderRadius: BorderRadius.circular(50),
                             color: Colors.white,
                           ),
@@ -318,7 +407,7 @@ class HomePage extends StatelessWidget {
                             pro.setSearchData(data: '');
                           },
                           icon: Icon(
-                            Icons.home,
+                            Icons.home_outlined,
                             size: Style.IconSize,
                           ),
                         ),
@@ -327,7 +416,9 @@ class HomePage extends StatelessWidget {
                             pro.addBookMark();
                           },
                           icon: Icon(
-                            Icons.bookmark_add_outlined,
+                            (pro.checkBookMarek())
+                                ? Icons.bookmark_remove_outlined
+                                : Icons.bookmark_add_outlined,
                             size: Style.IconSize,
                           ),
                         ),

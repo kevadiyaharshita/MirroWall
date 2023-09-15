@@ -13,6 +13,8 @@ class WebController extends ChangeNotifier {
   String? _currentsearchString;
   String _currentUrl = "";
 
+  double _progress = 0;
+
   String? _searchUrlData;
 
   Map allSearchEngine = {};
@@ -26,6 +28,15 @@ class WebController extends ChangeNotifier {
       'Yahoo': 'https://in.search.yahoo.com/?fr2=inr',
       'DogPile': 'https://results.dogpile.com/',
     };
+  }
+
+  setProgress({required int progress}) {
+    this._progress = progress / 100;
+    notifyListeners();
+  }
+
+  get getProgress {
+    return _progress;
   }
 
   update() {
@@ -88,7 +99,18 @@ class WebController extends ChangeNotifier {
     if (!_allBookMark.contains(_currentUrl)) {
       _allBookMark.add(_currentUrl);
       _allsearchString.add(_currentsearchString ?? '');
-      notifyListeners();
+    } else {
+      _allBookMark.remove(_currentUrl);
+      _allBookMark.remove(_currentsearchString);
+    }
+    notifyListeners();
+  }
+
+  bool checkBookMarek() {
+    if (_allBookMark.contains(_currentUrl)) {
+      return true;
+    } else {
+      return false;
     }
   }
 
