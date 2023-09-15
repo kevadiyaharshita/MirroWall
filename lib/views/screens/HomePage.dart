@@ -214,7 +214,6 @@ class HomePage extends StatelessWidget {
                   onLoadStop: (controller, uri) {
                     pro.initController(controller: controller);
                     pro.setCurrenturl(uri.toString());
-                    pro.checkBookMarkIcon(url: uri.toString());
                   },
                 ),
                 Positioned(

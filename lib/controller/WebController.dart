@@ -6,7 +6,7 @@ class WebController extends ChangeNotifier {
   bool _canBack = false;
   bool _canForward = false;
 
-  bool _bookMarkIcon = false;
+  // bool _bookMarkIcon = false;
 
   List<String> _allBookMark = [];
   List<String> _allsearchString = [];
@@ -146,20 +146,20 @@ class WebController extends ChangeNotifier {
     notifyListeners();
   }
 
-  setBookMarkIcon({required bool value}) {
-    _bookMarkIcon = value;
-    notifyListeners();
-  }
+  // setBookMarkIcon({required bool value}) {
+  //   _bookMarkIcon = value;
+  //   notifyListeners();
+  // }
+  //
+  // get getBookMarkIcons {
+  //   return _bookMarkIcon;
+  // }
 
-  get getBookMarkIcons {
-    return _bookMarkIcon;
-  }
-
-  checkBookMarkIcon({required String url}) {
-    if (_allBookMark.contains(url)) {
-      setBookMarkIcon(value: true);
-    } else {
-      setBookMarkIcon(value: false);
-    }
-  }
+  // checkBookMarkIcon({required String url}) {
+  //   if (_allBookMark.contains(url)) {
+  //     setBookMarkIcon(value: true);
+  //   } else {
+  //     setBookMarkIcon(value: false);
+  //   }
+  // }
 }
